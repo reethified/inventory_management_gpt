@@ -3,12 +3,12 @@ import yaml, sys, logging, os
 import logging.config
 from models.model import Stock, Item, Admin, Transaction
 
-log_file_dir = os.environ['LOG_FILE_PATH']  # Log file directory supplied from command line
+#log_file_dir = os.environ['LOG_FILE_PATH']  # Log file directory supplied from command line
 logging_config_file = "logging.yaml"
 
 # Read the logging configuration file and substitute the log file directory
 with open(logging_config_file, "r") as f:
-    logging_config = f.read().replace("$LOG_FILE_DIR", log_file_dir)
+    logging_config = f.read()
 
 # Configure logging
 logging.config.dictConfig(yaml.safe_load(logging_config))

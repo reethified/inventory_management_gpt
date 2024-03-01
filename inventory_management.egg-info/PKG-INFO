@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: inventory_management
+Version: 0.1
+Summary: An Inventory Management web application built with Streamlit
+Home-page: https://github.com/your_username/inventory_management
+Author: Rahul Sharma
+Author-email: reethified@email.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: streamlit
+Requires-Dist: streamlit-auth
+Requires-Dist: pyyaml
+Requires-Dist: unittest2
+
+# Inventory Management
+
+    export LOG_FILE_PATH=/Users/rsharma5/git/e2e_gpt/inventory_management
+    export LOG_FILE_DIR=/tmp
