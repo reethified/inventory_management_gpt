@@ -1,0 +1,25 @@
+[server]
+headless = true
+port = 8501
+enableCORS = false
+baseUrlPath = "inventory-management"
+useNode = false
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#1abc9c"
+backgroundColor = "#f2f2f2"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#333333"
+font = "sans serif"
+
+[google_oauth]
+client_id = "your_client_id"
+client_secret = "your_client_secret"
+authorize_url = "https://accounts.google.com/o/oauth2/auth"
+token_url = "https://accounts.google.com/o/oauth2/token"
+redirect_url = "https://your-streamlit-app-url.com/auth/google/callback"
+scope = ["email", "profile"]
+
+[runner]
+port = 8501
