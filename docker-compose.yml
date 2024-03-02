@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  streamlit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        LOG_FILE_PATH: ${LOG_FILE_PATH}
+    command: streamlit run app.py --server.port 8501 --server.enableCORS false --log_file ${LOG_FILE_PATH}/streamlit.log
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./inventory_management:/app/inventory_management
+    depends_on:
+      - postgres
+    environment:
+      LOG_FILE_PATH: ${LOG_FILE_PATH}
+  
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: inventory
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

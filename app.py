@@ -1,5 +1,6 @@
 import streamlit as st
 import yaml, sys, logging, os
+import pandas as pd
 import logging.config
 from models.model import Stock, Item, Admin, Transaction
 
@@ -139,6 +140,14 @@ def main():
         st.error("An error occurred. Please try again.")
         logger.error(f"An error occurred: {str(e)}")
 
+def load_stocks_from_csv():
+    if len(admin.stock.items) == 0:
+        stocks_data = pd.read_csv('stocks.csv')
+        for index, row in stocks_data.iterrows():
+            item = Item(row['name'], row['quantity'], row['price'])
+            admin.add_stock_item(item)
+
+load_stocks_from_csv()
 
 if __name__ == "__main__":
     main()

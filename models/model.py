@@ -21,7 +21,6 @@ class Stock:
 
     def add_item(self, item):
         self.items.append(item)
-        print("self.items:", len(self.items))
 
     def remove_item(self, item):
         self.items.remove(item)

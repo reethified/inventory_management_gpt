@@ -2,3 +2,4 @@ streamlit
 streamlit-auth
 pyyaml
 unittest2
+pandas
