@@ -1,31 +1,32 @@
 from setuptools import setup, find_packages
 
+def parse_requirements(filename):
+    with open(filename) as f:
+        lines = f.read().splitlines()
+        # filter out comments and empty lines
+        lines = [line.strip() for line in lines if line.strip() and not line.startswith('#')]
+    return lines
+
+# Read requirements from requirements.txt
+requirements = parse_requirements('requirements.txt')
+
 setup(
     name='inventory_management',
     version='0.1',
     packages=find_packages(),
-    install_requires=[
-        'streamlit',
-        'streamlit-auth',
-        'pyyaml',
-        'unittest2'
-        # Add other dependencies as needed
-    ],
+    install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'inventory_management_run = frontend.streamlit_app:main'
+            'inventory_management_run = app.py'
         ]
     },
     author='Rahul Sharma',
     author_email='reethified@email.com',
-    description='An Inventory Management web application built with Streamlit',
+    description='An Inventory Management web application built with GPT prmompts',
     long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
-    url='https://github.com/your_username/inventory_management',
-    license='MIT',
+    license='TODO',
     classifiers=[
-        'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3'
+        'Operating System :: OS Independent'
     ],
 )

@@ -4,6 +4,8 @@ import pandas as pd
 import logging.config
 from models.model import Stock, Item, Admin, Transaction
 
+st.sidebar.image('background.png', use_column_width=True)
+
 #log_file_dir = os.environ['LOG_FILE_PATH']  # Log file directory supplied from command line
 logging_config_file = "logging.yaml"
 
